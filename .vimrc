@@ -11,14 +11,20 @@ Plugin 'bling/vim-airline'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-sensible'
+Plugin 'klen/python-mode'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 syntax on
 
-autocmd Filetype ruby   setlocal ts=2 sts=2 sw=2
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
+augroup vimrcEx
+  autocmd!
+  autocmd FileType text,markdown,present setlocal ts=4 sw=4 et si tw=80
+  autocmd FileType sh,go,perl,awk,python,dockerfile setlocal ts=4 sw=4 et si
+  autocmd FileType ruby,cucumber,yaml,vim setlocal ts=2 sw=2 et si
+augroup END
 
 set hidden
 

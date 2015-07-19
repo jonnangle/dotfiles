@@ -1,7 +1,7 @@
 HISTTIMEFORMAT="%Y-%m-%d %T "
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-eval $(docker-machine env)
+eval $(~/bin/docker-machine env)
 
 alias ls='ls -GFh'
 

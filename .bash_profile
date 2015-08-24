@@ -1,4 +1,5 @@
 HISTTIMEFORMAT="%Y-%m-%d %T "
+export HISTSIZE=10000
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
 eval $(~/bin/docker-machine env)

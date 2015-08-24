@@ -2,7 +2,7 @@ HISTTIMEFORMAT="%Y-%m-%d %T "
 export HISTSIZE=10000
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-eval $(~/bin/docker-machine env)
+hash docker-machine 2>/dev/null && eval $(docker-machine env)
 
 alias ls='ls -GFh'
 

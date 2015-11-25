@@ -29,4 +29,5 @@ then
     . ~/.bash_profile.local
 fi
 
+shopt -s checkhash
 export PATH=$PATH:$HOME/bin

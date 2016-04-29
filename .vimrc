@@ -14,6 +14,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-sensible'
 Plugin 'klen/python-mode'
+Plugin 'ClockworkNet/vim-vcl'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,3 +52,7 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+"" pymode
+let g:pymode_utils_whitespaces = 0
+set foldlevelstart=10

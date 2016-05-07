@@ -29,11 +29,25 @@ augroup END
 
 set hidden
 
+let g:pymode_rope_autoimport = 0
+
+set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+" No more esc!
+inoremap jk <esc>
+inoremap kj <esc>
+
 " Mappings
 let mapleader = ";"
 nmap <Leader>, :bp<CR>
 nmap <Leader>. :bn<CR>
 nmap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
+" lazy .vimrc edits
+nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <Leader>sv :source $MYVIMRC<cr>
 
 "" airline
 let g:airline#extensions#tabline#enabled = 1

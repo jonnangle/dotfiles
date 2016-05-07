@@ -13,6 +13,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-fugitive'
 Plugin 'klen/python-mode'
 Plugin 'ClockworkNet/vim-vcl'
 
@@ -52,6 +53,10 @@ nnoremap <Leader>sv :source $MYVIMRC<cr>
 "" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+"" fugitive
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gs :Gstatus<CR>
 
 "  " Map <C-L> (redraw screen) to also turn off search highlighting until the
 "  " next search

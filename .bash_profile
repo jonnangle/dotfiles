@@ -10,6 +10,7 @@ export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
 export PS1="\[$txtcyn\]\u\[$txtrst\]@\[$txtgrn\]\h:\[$bldylw\]\w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
+alias vi='/opt/boxen/homebrew/bin/vim'
 alias gd='git diff'
 alias gc='git diff --cached'
 alias be='bundle exec'

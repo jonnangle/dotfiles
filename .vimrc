@@ -67,11 +67,17 @@ map <C-n> :NERDTreeToggle<CR>
 
 "" rspec
 let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+au FileType ruby nmap <Leader>t :call RunCurrentSpecFile()<CR>
+au FileType ruby nmap <Leader>s :call RunNearestSpec()<CR>
+au FileType ruby nmap <Leader>l :call RunLastSpec()<CR>
+au FileType ruby nmap <Leader>a :call RunAllSpecs()<CR>
 
 "" pymode
 let g:pymode_utils_whitespaces = 0
 set foldlevelstart=10
+
+"" go
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)

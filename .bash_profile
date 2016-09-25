@@ -2,8 +2,6 @@ HISTTIMEFORMAT="%Y-%m-%d %T "
 export HISTSIZE=10000
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-hash docker-machine 2>/dev/null && eval $(docker-machine env)
-
 alias ls='ls -GFh'
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt

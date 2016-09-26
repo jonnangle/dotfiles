@@ -21,6 +21,9 @@ export PATH=$PATH:$GOPATH/bin
 if [ -f `brew --prefix`/etc/autojump.sh ]; then
     . `brew --prefix`/etc/autojump.sh
 fi
+if [ -f $(brew --prefix autoenv)/activate.sh ]; then
+    . $(brew --prefix autoenv)/activate.sh
+fi
 
 # Run local profile, if one exists
 if [ -f ~/.bash_profile.local ]

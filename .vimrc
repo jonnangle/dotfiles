@@ -24,7 +24,8 @@ syntax on
 augroup vimrcEx
   autocmd!
   autocmd FileType text,markdown,present setlocal ts=4 sw=4 et si tw=80
-  autocmd FileType sh,go,perl,awk,python,dockerfile,javascript setlocal ts=4 sw=4 et si
+  autocmd FileType sh,go,perl,awk,python,dockerfile setlocal ts=4 sw=4 et si
+  autocmd FileType javascript setlocal ts=4 sw=4 si
   autocmd FileType ruby,cucumber,yaml,vim setlocal ts=2 sw=2 et si
 augroup END
 

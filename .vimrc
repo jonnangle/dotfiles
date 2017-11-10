@@ -47,6 +47,9 @@ nmap <Leader>, :bp<CR>
 nmap <Leader>. :bn<CR>
 nmap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
+map <Leader>\ :cnext<CR>
+map <Leader>' :cprevious<CR>
+
 " lazy .vimrc edits
 nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
@@ -81,4 +84,4 @@ set foldlevelstart=10
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>c <Plug>(go-coverage-toggle)

@@ -25,6 +25,27 @@ if [ -f $(brew --prefix autoenv)/activate.sh ]; then
     . $(brew --prefix autoenv)/activate.sh
 fi
 
+_complete_csshx () {
+        COMPREPLY=()
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        host_list=$(sed -n 's/^clusters[[:space:]]=[[:space:]]//p' ~/.csshrc)
+        COMPREPLY=( $(compgen -W "${host_list}" -- $cur))
+        return 0
+}
+complete -F _complete_csshx csshX
+
+dcleanup(){
+	local containers
+	containers=( $(docker ps -aq 2>/dev/null) )
+	docker rm "${containers[@]}" 2>/dev/null
+	local volumes
+	volumes=( $(docker ps --filter status=exited -q 2>/dev/null) )
+	docker rm -v "${volumes[@]}" 2>/dev/null
+	local images
+	images=( $(docker images --filter dangling=true -q 2>/dev/null) )
+	docker rmi "${images[@]}" 2>/dev/null
+}
+
 # Run local profile, if one exists
 if [ -f ~/.bash_profile.local ]
 then

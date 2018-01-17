@@ -52,6 +52,29 @@ cert(){
     openssl s_client -servername $1 -connect $1:$port 2>&1 </dev/null | openssl x509 -noout -text 2>&1 | head -20
 }
 
+getK8sRoles() {
+    local kind="${1}"
+    local name="${2}"
+    local namespace="${3:-}"
+
+    kubectl get clusterrolebinding -o json | jq -r "
+      .items[]
+      | 
+      select(
+        .subjects[]
+        | 
+        select(
+            .kind == \"${kind}\" 
+            and
+            .name == \"${name}\"
+            and
+            (if .namespace then .namespace else \"\" end) == \"${namespace}\"
+        )
+      )
+      |
+      (.roleRef.kind + \"/\" + .roleRef.name)
+    "
+}
 
 # Run local profile, if one exists
 if [ -f ~/.bash_profile.local ]

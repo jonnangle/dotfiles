@@ -46,6 +46,13 @@ dcleanup(){
 	docker rmi "${images[@]}" 2>/dev/null
 }
 
+cert(){
+    port=443
+    if [ "$2" != "" ] ; then port=$2; fi
+    openssl s_client -servername $1 -connect $1:$port 2>&1 </dev/null | openssl x509 -noout -text 2>&1 | head -20
+}
+
+
 # Run local profile, if one exists
 if [ -f ~/.bash_profile.local ]
 then

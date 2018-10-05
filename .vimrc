@@ -16,6 +16,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive'
 Plugin 'klen/python-mode'
 Plugin 'ClockworkNet/vim-vcl'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

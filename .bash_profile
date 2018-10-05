@@ -1,6 +1,7 @@
 HISTTIMEFORMAT="%Y-%m-%d %T "
 export HISTSIZE=10000
 export LSCOLORS=ExFxBxDxCxegedabagacad
+export EDITOR=vim
 
 alias ls='ls -GFh'
 
@@ -12,6 +13,11 @@ alias vi='/opt/boxen/homebrew/bin/vim'
 alias gd='git diff'
 alias gc='git diff --cached'
 alias be='bundle exec'
+alias k='kubectl'
+alias kp='kubectl get pods'
+alias kpa='kubectl get pods --all-namespaces'
+alias kt='kubetail'
+alias ddig='dig @ns1.p23.dynect.net'
 
 source /opt/boxen/env.sh
 
@@ -48,8 +54,9 @@ dcleanup(){
 
 cert(){
     port=443
+    OPENSSL=/opt/boxen/homebrew/Cellar/openssl/1.0.2n/bin/openssl
     if [ "$2" != "" ] ; then port=$2; fi
-    openssl s_client -servername $1 -connect $1:$port 2>&1 </dev/null | openssl x509 -noout -text 2>&1 | head -20
+    $OPENSSL s_client -servername $1 -connect $1:$port 2>&1 </dev/null | $OPENSSL x509 -noout -text 2>&1 | head -20
 }
 
 getK8sRoles() {

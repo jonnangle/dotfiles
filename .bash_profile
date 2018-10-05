@@ -83,6 +83,11 @@ getK8sRoles() {
     "
 }
 
+complete -C aws_completer aws
+alias aws-profile="source aws-profile"
+alias aws="aws-wrapper"
+export AWS_DEFAULT_REGION=eu-west-1
+
 # Run local profile, if one exists
 if [ -f ~/.bash_profile.local ]
 then
